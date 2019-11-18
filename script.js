@@ -1,14 +1,21 @@
-var latLng, options, map;
+var map;
+async function initMap() {
+    let wilsonHall = {lat: 35.908161, lng: -79.051970};
 
-function initMap() {
-    /// SETUP
-    latLng = {lat: 35.908161, lng: -79.051970};
-    options = {
+
+    map = await new google.maps.Map(document.getElementById('map'), {
         zoom: 17,
-        center: latLng
-    }
-    map = new google.maps.Map(document.getElementById("map"), options)
-    generateMarkers(latLng)
+        center: wilsonHall
+    });
+
+
+    let marker = new google.maps.Marker({
+        position: wilsonHall,
+        map: map,
+        title: 'Our Classroom!'
+    });
+
+    generateMarkers(wilsonHall)
 }
 
 function generateMarkers(originalLatLng) {
