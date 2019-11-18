@@ -16,8 +16,11 @@ async function initMap() {
     });
 
     generateMarkers(wilsonHall)
+    console.log("Just Generated Markers. About to geofence.");
 
-    let g = new Geofence(34.9076,-80.0518, 36.9076,-78.0518,);
+    let g = new Geofence(34.9076,-80.0518, 36.9076,-78.0518);
+    console.log(g);
+    console.log(g.isUserInGeofence(35.9076,-79.0518));
 
     if(g.isUserInGeofence(35.9076,-79.0518)) {
         alert("It's time to battle!");
@@ -69,7 +72,7 @@ class Geofence {
         length. All parameters should be numbers. */
 
         // Encapsulate all coordinates where we could be passed any even number of coordinates
-        this.coordinates = [];
+        this.coordinates = [...arguments];
 
         if(this.coordinates.length < 4) {
             throw "EXCEPTION! CANNOT CREATE GENFENCE WITHOUT AT LEAST 2 COORDINATE PAIRS";
@@ -98,7 +101,8 @@ class Geofence {
         // How can we determine if something is within the fence?
 
         // Your Code Goes Here:
-
+        
+        
 
 
 
