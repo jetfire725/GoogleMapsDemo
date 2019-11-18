@@ -45,7 +45,7 @@ function generateMarkers(originalLatLng) {
   }
 }
 
-/// Returns a random number from 0 to max -1.
+/// Returns a random number from 0 to max-1.
 function randomNumber(max) {
   return Math.floor(Math.random() * Math.floor(max))
 }
