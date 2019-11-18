@@ -1,14 +1,14 @@
-var myLatLng, options, map;
+var latLng, options, map;
 
 function initMap() {
     /// SETUP
-    myLatLng = {lat: 35.908161, lng: -79.051970};
+    latLng = {lat: 35.908161, lng: -79.051970};
     options = {
         zoom: 17,
-        center: myLatLng
+        center: latLng
     }
     map = new google.maps.Map(document.getElementById("map"), options)
-    generateMarkers()
+    generateMarkers(latLng)
 }
 
 function generateMarkers() {
