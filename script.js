@@ -1,21 +1,13 @@
+var map;
 async function initMap() {
     let wilsonHall = {lat: 35.9076, lng: -79.0518};
     
 
-    let map = await new google.maps.Map(document.getElementById('map'), {
+    map = await new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
         center: wilsonHall
     });
 
-    // write function to construct geofence from onClick?
-    google.maps.event.addListener(map, "click", function (event) {
-        let latitude = event.latLng.lat();
-        let longitude = event.latLng.lng();
-        console.log( latitude + ', ' + longitude );
-        arrayOfGeofenceArgumentClicks.push(latitude);
-        arrayOfGeofenceArgumentClicks.push(longitude);
-
-    }); //end addListener
 
     let marker = new google.maps.Marker({
         position: wilsonHall,
@@ -23,16 +15,12 @@ async function initMap() {
         title: 'Our Classroom!' 
     });
 
-    let g;
-    try{
-        g = new Geofence(10,10, 10, 20); 
-    } catch(e) {
-        console.log(e);
-        g = new Geofence(90, 90, 0,0);
-    }
-    arrayOfGeofences.push(g);
     
-    console.log(g.coordinates); 
+    let g = new Geofence(34.9076,-80.0518, 36.9076,-78.0518,); 
+    
+    if(g.isUserInGeofence(35.9076,-79.0518)) {
+        alert("It's time to battle!");
+    }
 }
 
 
