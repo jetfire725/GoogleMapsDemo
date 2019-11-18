@@ -20,7 +20,7 @@ async function initMap() {
     let g = new Geofence(34.9076,-80.0518, 36.9076,-78.0518);
 
     if(g.isUserInGeofence(35.9076,-79.0518)) {
-        alert("It's time to battle!");
+        alert("Gotta Catch 'Em All!");
     }
 }
 
