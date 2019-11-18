@@ -11,7 +11,7 @@ function initMap() {
     generateMarkers(latLng)
 }
 
-function generateMarkers() {
+function generateMarkers(originalLatLng) {
   markers = []
   // To create 10 markers nearby our original coordinates,
   for(var i =0; i < 10; i++) {
