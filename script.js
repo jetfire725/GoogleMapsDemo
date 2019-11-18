@@ -51,15 +51,7 @@ class Geofence {
         // Generalize constructor to also take in a single array? Useful for onclick?
 
         if (arguments.length < 4) {
-            // error
-            // check if 1st arg is an array:
-            if (Array.isArray(arg[0])) {
-                // parse array. 
-                this.arguments = [...arguments[0]];
-            } else {
-                throw "ERROR. CANNOT CREATE GEOFENCE WITHOUT AT LEAST 2 COORDINATES";
-            }
-
+            throw "ERROR. CANNOT CREATE GEOFENCE WITHOUT AT LEAST 2 COORDINATES";
         }
 
         this.coordinates = [...arguments]; // stores copy of passed in arguments. Important for referencing later.
@@ -78,6 +70,7 @@ class Geofence {
     isUserInGeofence(givenLat, givenLon) {
         // function to determine if a given coordinate is within the coordinates of the Geofence.
         // check if range is undefined:
+        let isWithin = true;
         let latitudes = [];
         let longitudes = [];
         for (let i = 0; i < this.coordinates.length; i += 2) {
@@ -88,15 +81,15 @@ class Geofence {
         // Something is within the fence if the coordinates are between the min and max latitude and longitude.
 
         // find min lat and lon. Find max lat and lon. Check if given values are within those ranges.
-        let minLat = Math.min(latitudes);
-        let maxLat = Math.max(latitudes);
-        let minLon = Math.min(longitudes);
-        let maxLon = Math.max(longitudes);
+        let minLat = Math.min(...latitudes);
+        let maxLat = Math.max(...latitudes);
+        let minLon = Math.min(...longitudes);
+        let maxLon = Math.max(...longitudes);
 
         if (givenLat >= minLat && givenLat <= maxLat && givenLon >= minLon && givenLon <= maxLon) {
-            return true;
+            isWithin = true;
         }
-        return false;
+        return isWithin;
 
     }
 }
@@ -107,7 +100,7 @@ async function initMap() {
 
 
     map = await new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
+        zoom: 17,
         center: wilsonHall
     });
 
@@ -117,9 +110,11 @@ async function initMap() {
         title: 'Our Classroom!'
     });
 
+    generateMarkers(wilsonHall);
+    
     let g;
     try {
-        g = new Geofence(10, 10, 10, 20);
+        g = new Geofence(34.9076, -80.0518, 36.9076, -78.0518);
         // ****************
         // CALL DRAW GEOFENCE METHOD
         // ****************
@@ -130,7 +125,8 @@ async function initMap() {
         console.log(e);
     }
 
-    generateMarkers(wilsonHall);
 
-    console.log(g.coordinates);
+    if(g.isUserInGeofence(35.9076, -79.0518)) {
+        alert("Gotta Catch 'Em All!");
+    }
 }
