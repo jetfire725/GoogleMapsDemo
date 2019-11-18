@@ -1,4 +1,4 @@
-var map;
+var map, markers;
 async function initMap() {
     let wilsonHall = {lat: 35.908161, lng: -79.051970};
 
