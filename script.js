@@ -20,8 +20,8 @@ async function initMap() {
 
 function generateMarkers(originalLatLng) {
   markers = []
-  // To create 10 markers nearby our original coordinates,
-  for(let i =0; i < 10; i++) {
+  // To create 20 markers nearby our original coordinates,
+  for(let i =0; i < 20; i++) {
     // TODO: Create a latitude adjustment and longitude adjustment
     // that we will apply to our original coordinates
     latitudeAdjustment = undefined
