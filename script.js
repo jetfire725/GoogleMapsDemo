@@ -21,7 +21,7 @@ async function initMap() {
 function generateMarkers(originalLatLng) {
   markers = []
   // To create 20 markers nearby our original coordinates,
-  for(var i =0; i < 20; i++) {
+  for(let i =0; i < 20; i++) {
     // Create a latitude adjustment and longitude adjustment
     // that we will apply to our original coordinates
     latitudeAdjustment = randomNumber(10)/10000
@@ -35,7 +35,7 @@ function generateMarkers(originalLatLng) {
     // Use these values to create a new set of coordinates that is slightly offset from our original coordinates
     let newLatLng = {lat: originalLatLng.lat+latitudeAdjustment, lng: originalLatLng.lng+longitudeAdjustment}
     // Create a marker at these new coordinates
-    var marker = new google.maps.Marker({
+    let marker = new google.maps.Marker({
       position: newLatLng,
       map: map,
       title: 'Pokemon',
