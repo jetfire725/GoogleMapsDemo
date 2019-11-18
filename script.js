@@ -21,7 +21,7 @@ async function initMap() {
 function generateMarkers(originalLatLng) {
   markers = []
   // To create 10 markers nearby our original coordinates,
-  for(var i =0; i < 10; i++) {
+  for(let i =0; i < 10; i++) {
     // TODO: Create a latitude adjustment and longitude adjustment
     // that we will apply to our original coordinates
     latitudeAdjustment = undefined
@@ -35,7 +35,7 @@ function generateMarkers(originalLatLng) {
     // TODO: Use these values to create a new set of coordinates that is slightly offset from our original coordinates
     let newLatLng = undefined
     // TODO: Create a marker at these new coordinates
-    var marker = new google.maps.Marker({
+    let marker = new google.maps.Marker({
       position: undefined,
       map: undefined,
       title: undefined
