@@ -1,5 +1,3 @@
-let arrayOfGeofences = [];
-let arrayOfGeofenceArgumentClicks = [];
 var map;
 
 // finding random pokemon 
@@ -125,12 +123,12 @@ async function initMap() {
         // ****************
         // CALL DRAW GEOFENCE METHOD
         // ****************
+
         // c = new Geofence(35.908342, -79.052368, 35.908291, -79.051596, 35.907447, -79.051591, 35.907873, -79.052567, 35.908342, -79.052368);
         // c.drawGeofence();
     } catch (e) {
         console.log(e);
     }
-    arrayOfGeofences.push(g);
 
     generateMarkers(wilsonHall);
 
