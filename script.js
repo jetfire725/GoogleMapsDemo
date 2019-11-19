@@ -70,7 +70,7 @@ class Geofence {
     isUserInGeofence(givenLat, givenLon) {
         // function to determine if a given coordinate is within the coordinates of the Geofence.
         // check if range is undefined:
-        let isWithin = true;
+        let isWithin = false;
         let latitudes = [];
         let longitudes = [];
         for (let i = 0; i < this.coordinates.length; i += 2) {
@@ -114,12 +114,11 @@ async function initMap() {
 
     let g;
     try {
-        g = new Geofence(34.9076, -80.0518, 36.9076, -78.0518);
+        c = new Geofence(35.908342, -79.052368, 35.908291, -79.051596, 35.907447, -79.051591, 35.907873, -79.052567, 35.908342, -79.052368);
         // ****************
         // CALL DRAW GEOFENCE METHOD
         // ****************
 
-        // c = new Geofence(35.908342, -79.052368, 35.908291, -79.051596, 35.907447, -79.051591, 35.907873, -79.052567, 35.908342, -79.052368);
     } catch (e) {
         console.log(e);
     }
