@@ -111,7 +111,7 @@ async function initMap() {
     });
 
     generateMarkers(wilsonHall);
-    
+
     let g;
     try {
         g = new Geofence(34.9076, -80.0518, 36.9076, -78.0518);
@@ -120,13 +120,12 @@ async function initMap() {
         // ****************
 
         // c = new Geofence(35.908342, -79.052368, 35.908291, -79.051596, 35.907447, -79.051591, 35.907873, -79.052567, 35.908342, -79.052368);
-        // c.drawGeofence();
     } catch (e) {
         console.log(e);
     }
 
 
-    if(g.isUserInGeofence(35.9076, -79.0518)) {
+    if (g.isUserInGeofence(35.9076, -79.0518)) {
         alert("Gotta Catch 'Em All!");
     }
 }
