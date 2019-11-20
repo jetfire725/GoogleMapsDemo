@@ -10,9 +10,9 @@ async function initMap() {
 
 
     let marker = new google.maps.Marker({
-        position: wilsonHall,
-        map: map,
-        title: 'Our Classroom!'
+        position: undefined,
+        map: undefined,
+        title: undefined
     });
 
     generateMarkers(wilsonHall)
