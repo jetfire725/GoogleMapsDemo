@@ -114,17 +114,18 @@ async function initMap() {
 
     let g;
     try {
-        c = new Geofence(35.908342, -79.052368, 35.908291, -79.051596, 35.907447, -79.051591, 35.907873, -79.052567, 35.908342, -79.052368);
+        g = new Geofence(35.908342, -79.052368, 35.908291, -79.051596, 35.907447, -79.051591, 35.907873, -79.052567, 35.908342, -79.052368);
         // ****************
         // CALL DRAW GEOFENCE METHOD
         // ****************
+
+
+        if (g.isUserInGeofence(35.9076, -79.0518)) {
+            alert("Gotta Catch 'Em All!");
+        }
 
     } catch (e) {
         console.log(e);
     }
 
-
-    if (g.isUserInGeofence(35.9076, -79.0518)) {
-        alert("Gotta Catch 'Em All!");
-    }
 }
